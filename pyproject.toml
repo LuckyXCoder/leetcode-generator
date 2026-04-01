@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "leetcode-generator"
+version = "0.1.0"
+description = "LeetCode Markdown 生成 & 题目移动工具"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "html2text>=2025.4.15",
+    "python-dotenv>=1.0.0",
+]
+
+[project.scripts]
+lc-gen = "leetcode_generator.lc_gen:main"
+lc-move = "leetcode_generator.lc_move:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/leetcode_generator"]
