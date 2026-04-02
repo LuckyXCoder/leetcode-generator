@@ -10,7 +10,7 @@ import shutil
 
 import html2text
 
-from env_utils import DETAIL_CSV, GENERATED_DIR, LANGUAGES, get_type_dir_map
+from leetcode_generator.env_utils import DETAIL_CSV, GENERATED_DIR, LANGUAGES, get_type_dir_map
 
 # 语言配置：CSV 字段名、文件名、注释风格
 LANG_CONFIG = {

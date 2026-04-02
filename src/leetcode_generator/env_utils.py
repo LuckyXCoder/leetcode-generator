@@ -42,6 +42,9 @@ def get_type_dir_map(lang: str) -> dict[str, str]:
         "面试题": os.path.join(base, "interview"),
     }
 
+# 默认移动语言
+DEFAULT_MOVE_LANG = os.getenv("LC_MOVE_LANG", LANGUAGES[0] if LANGUAGES else "java")
+
 # 各语言的外部刷题目标目录
 TARGET_DIR_MAP = {
     "java": os.getenv("LC_TARGET_DIR_JAVA", ""),

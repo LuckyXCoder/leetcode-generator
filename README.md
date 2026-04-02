@@ -103,6 +103,10 @@ generated/
 
 ### 5. 移动题目到刷题项目
 
+`lc-gen` 生成的 Java/C++ 代码模板来自 LeetCode 官方，不包含完整的 `import` 和 `return` 部分。
+
+如果一次性全部导入 IDE 项目，其他未完成的题目会导致编译报错，干扰当前正在做的题。因此推荐做哪题就移哪题，`lc-move` 就是用来按需复制的。Python 不受此影响，因为脚本可以独立运行。
+
 #### 推荐用法：全局命令
 
 在 Shell 配置文件中添加别名，之后可在任意终端直接使用 `lc-move`。
@@ -166,6 +170,20 @@ lc-move --lang python 1
 lc-move --lang cpp 1
 ```
 
+示例输出：
+
+```text
+源目录:   .../leetcode-generator/generated/python/leetcode/problems
+目标目录: .../leetcode/python
+语言:     python
+共 1 题
+
+  [1] .../generated/python/leetcode/problems/lc0001_two-sum
+     -> .../leetcode/python/lc0001_two-sum
+
+完成！
+```
+
 需要在 `.env` 中配置各语言的目标项目路径：
 
 ```env
@@ -179,6 +197,7 @@ LC_TARGET_DIR_CPP=<cpp-project-path>
 | 变量 | 说明 | 默认值 |
 |------|------|--------|
 | `LC_LANGUAGES` | 生成的语言（逗号分隔） | `java` |
+| `LC_MOVE_LANG` | lc-move 默认移动语言 | `LC_LANGUAGES` 第一个值 |
 | `LC_OUTPUT_DIR` | CSV 数据目录 | `data` |
 | `LC_GENERATED_DIR` | 生成产物目录 | `generated` |
 | `LC_DETAIL_CSV` | 详情 CSV 路径 | `{LC_OUTPUT_DIR}/题目详情.csv` |
